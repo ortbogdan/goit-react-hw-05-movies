@@ -38,3 +38,10 @@ export async function getMovieReviewsById(id) {
   console.log(response.data);
   return response.data;
 }
+// export async function getMovieInfo(id, url) {
+//   const response = await axios.get(
+//     `/3/movie/${id}/${url}?api_key=${API_KEY}&language=en-US&page=1`,
+//   );
+//   console.log(response.data);
+//   return response.data;
+// }

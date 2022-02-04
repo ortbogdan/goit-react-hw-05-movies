@@ -1,14 +1,17 @@
-import {
-  getTrendingMovies,
-  getMoviesByQuery,
-  getMovieCreditsById,
-  getMovieReviewsById,
-} from './services/moviesApi';
+import { Route } from 'react-router-dom';
+import { Navigation, MoviesList } from './components';
+import { getTrendingMovies } from './services/moviesApi';
 
 export const App = () => {
   getTrendingMovies();
-  getMoviesByQuery('batman');
-  getMovieCreditsById(131885);
-  getMovieReviewsById(597208);
-  return <div className="App"></div>;
+  return (
+    <div>
+      <Route>
+        <Navigation />
+      </Route>
+      <Route path="/" exact>
+        <MoviesList />
+      </Route>
+    </div>
+  );
 };
