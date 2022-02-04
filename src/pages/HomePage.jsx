@@ -1,15 +1,17 @@
-import { getTrendingMovies } from '../../services/moviesApi';
+import { getTrendingMovies } from '../services/moviesApi';
 import { useState, useEffect } from 'react';
-export const MoviesList = () => {
+import { Link } from 'react-router-dom';
+
+export const HomePage = () => {
   const [movies, setMovies] = useState([]);
-  const [error, setError] = useState(null);
+
   useEffect(() => {
     async function fetchItems() {
       try {
         const items = await getTrendingMovies();
         setMovies(items);
       } catch (error) {
-        setError(error);
+        console.log(error);
       }
     }
     fetchItems();
@@ -18,7 +20,9 @@ export const MoviesList = () => {
   return (
     <ul>
       {movies.map(movie => (
-        <li key={movie.id}>{movie.title}</li>
+        <li key={movie.id}>
+          <Link to="/movies/:movieId">{movie.title}</Link>
+        </li>
       ))}
     </ul>
   );

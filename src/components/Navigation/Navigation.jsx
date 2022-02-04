@@ -1,23 +1,25 @@
 import { NavLink as RouterLink } from 'react-router-dom';
-import { NavList, NavItem } from './Navigation.styled';
+import { Nav, Menu } from './Navigation.styled';
 import styled from 'styled-components';
 
 const NavLink = styled(RouterLink)`
-  &:active {
-    color: red;
+  text-decoration: none;
+  &.active {
+    color: green;
+  }
+  :not(:first-child) {
+    margin-left: 15px;
   }
 `;
 export const Navigation = () => {
   return (
-    <NavList>
-      <NavItem>
+    <Menu>
+      <Nav>
         <NavLink to="/" exact>
           Home
         </NavLink>
-      </NavItem>
-      <NavItem>
         <NavLink to="/movies">Movies</NavLink>
-      </NavItem>
-    </NavList>
+      </Nav>
+    </Menu>
   );
 };
