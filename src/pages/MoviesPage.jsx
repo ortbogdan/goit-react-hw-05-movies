@@ -1,34 +1,43 @@
 import { Searchbar, MoviesList } from '../components';
 import { useState, useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
+import queryString from 'query-string';
 import { getMoviesByQuery } from '../services/moviesApi';
 export const MoviesPage = () => {
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
+
+  const history = useHistory();
+  // const location = useLocation();
+  // location.search = history.search
+  console.log(history.location.search);
+
   useEffect(() => {
+    if (history.location.search) {
+      const queryParam = queryString.parse(history.location.search).query;
+      console.log(queryParam);
+      setQuery(queryParam);
+    }
     if (query === '') return;
     async function fetchItems() {
       try {
         const items = await getMoviesByQuery(query);
-        setMovies(prevItems => [...prevItems, ...items]);
+        setMovies(items);
+        history.push({ search: `query=${query}` });
       } catch (error) {
         console.log(error);
       }
     }
     fetchItems();
-  }, [query]);
+  }, [query, history]);
+
   const onFormSubmit = searchedMovie => {
-    console.log(searchedMovie);
     setQuery(searchedMovie);
   };
   return (
-    <div>
-      <Switch>
-        <Route path="/movies" exact>
-          <Searchbar onFormSubmit={onFormSubmit} />
-          {movies.length > 0 && <MoviesList movies={movies} />}
-        </Route>
-      </Switch>
-    </div>
+    <main>
+      <Searchbar onFormSubmit={onFormSubmit} />
+      {movies.length > 0 && <MoviesList movies={movies} />}
+    </main>
   );
 };

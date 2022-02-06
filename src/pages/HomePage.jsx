@@ -17,5 +17,9 @@ export const HomePage = () => {
     fetchItems();
   }, []);
 
-  return <MoviesList movies={movies} />;
+  return (
+    <main>
+      <MoviesList movies={movies} />
+    </main>
+  );
 };
