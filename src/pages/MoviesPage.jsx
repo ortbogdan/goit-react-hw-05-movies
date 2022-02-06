@@ -1,6 +1,6 @@
 import { Searchbar, MoviesList } from '../components';
 import { useState, useEffect } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import queryString from 'query-string';
 import { getMoviesByQuery } from '../services/moviesApi';
 export const MoviesPage = () => {
@@ -8,8 +8,7 @@ export const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
 
   const history = useHistory();
-  // const location = useLocation();
-  // location.search = history.search
+
   console.log(history.location.search);
 
   useEffect(() => {

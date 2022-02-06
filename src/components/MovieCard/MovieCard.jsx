@@ -5,7 +5,7 @@ export const MovieCard = ({ movieInfo }) => {
   const history = useHistory();
   const { poster_path, title, vote_average, overview, genres } = movieInfo;
   return (
-    <main>
+    <div>
       {/* useHistory метод який повертає в стеку історії на один шлях назад, те саме, що метод go(-1)   */}
       <button type="button" onClick={() => history.goBack()}>
         Go back
@@ -27,7 +27,7 @@ export const MovieCard = ({ movieInfo }) => {
           )}
         </div>
       </article>
-    </main>
+    </div>
   );
 };
 
