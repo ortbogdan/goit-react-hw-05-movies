@@ -4,6 +4,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import queryString from 'query-string';
 import { toast } from 'react-toastify';
 import { getMoviesByQuery } from '../services/moviesApi';
+import { Container } from '../components';
 export const MoviesPage = () => {
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
@@ -42,8 +43,10 @@ export const MoviesPage = () => {
   };
   return (
     <main>
-      <Searchbar onFormSubmit={onFormSubmit} />
-      {movies.length > 0 && <MoviesList movies={movies} />}
+      <Container>
+        <Searchbar onFormSubmit={onFormSubmit} />
+        {movies.length > 0 && <MoviesList movies={movies} />}
+      </Container>
     </main>
   );
 };

@@ -1,3 +1,8 @@
+import { Container } from '../components';
 export const NotFoundPage = () => {
-  return <h2>Not found</h2>;
+  return (
+    <Container>
+      <h2>Not found</h2>
+    </Container>
+  );
 };

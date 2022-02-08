@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 export const Reviews = ({ articles }) => {
   return (
     <ul>
-      {articles.lenght > 0 ? (
+      {articles.length > 0 ? (
         articles.map(({ author, content, id }) => (
           <li key={id}>
             <h4>{author}</h4>

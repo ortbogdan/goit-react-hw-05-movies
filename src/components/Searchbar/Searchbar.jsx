@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
+import { SearchButton, Input } from './Searchbar.styled';
 export const Searchbar = ({ onFormSubmit }) => {
   const handleSubmit = e => {
     e.preventDefault();
@@ -12,8 +13,8 @@ export const Searchbar = ({ onFormSubmit }) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <button type="submit">Search</button>
-        <input type="text" name="search" />
+        <SearchButton type="submit">Search</SearchButton>
+        <Input type="text" name="search" />
       </form>
     </div>
   );
