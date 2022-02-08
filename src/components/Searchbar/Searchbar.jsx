@@ -1,9 +1,13 @@
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 export const Searchbar = ({ onFormSubmit }) => {
   const handleSubmit = e => {
     e.preventDefault();
-    const searchedMovie = e.currentTarget.children.search.value;
-    onFormSubmit(searchedMovie.trim().toLowerCase());
+    const searchedMovie = e.currentTarget.children.search.value.trim();
+    if (!searchedMovie) {
+      toast.info('Please type the movie title!');
+    }
+    onFormSubmit(searchedMovie.toLowerCase());
   };
   return (
     <div>

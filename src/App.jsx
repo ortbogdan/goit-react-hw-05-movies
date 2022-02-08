@@ -1,11 +1,9 @@
 import { Route, Switch } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Navigation } from './components';
 import { getTrendingMovies } from './services/moviesApi';
-import { HomePage } from './pages/HomePage';
-import { MoviesPage } from './pages/MoviesPage';
-import { NotFoundPage } from './pages/NotFoundPage';
-import { MovieDetailsPage } from './pages/MovieDetailsPage';
-
+import { HomePage, MoviesPage, NotFoundPage, MovieDetailsPage } from './pages';
 export const App = () => {
   getTrendingMovies();
   return (
@@ -25,6 +23,7 @@ export const App = () => {
           <NotFoundPage />
         </Route>
       </Switch>
+      <ToastContainer />
     </div>
   );
 };

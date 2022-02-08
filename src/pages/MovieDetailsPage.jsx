@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react';
 import { getMovieDetailsById } from '../services/moviesApi';
 import { MovieCard, Cast, Reviews } from '../components';
 export const MovieDetailsPage = () => {
-  const { movieId } = useParams();
+  const { movieId } = useParams(); // movieId відповідає параметрам App
   const { url } = useRouteMatch();
   const [movieInfo, setMovieInfo] = useState(null);
 
@@ -24,8 +24,7 @@ export const MovieDetailsPage = () => {
     }
     fetchMovieInfo(movieId);
   }, [movieId]);
-  console.log(movieInfo);
-  // const { credits, reviews} = movieInfo
+
   return (
     <main>
       {movieInfo ? (
