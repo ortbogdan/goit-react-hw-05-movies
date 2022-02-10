@@ -11,7 +11,6 @@ import PropTypes from 'prop-types';
 const posterUrl = 'https://image.tmdb.org/t/p/w200';
 export const MoviesList = ({ movies }) => {
   const location = useLocation();
-  console.log(movies);
   return (
     <List>
       {movies.map(movie => (

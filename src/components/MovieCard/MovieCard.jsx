@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation, useHistory, NavLink } from 'react-router-dom';
 import {
   Card,
   FilmInfo,
@@ -8,6 +8,9 @@ import {
   Thumb,
   GenresItem,
   MovieDescription,
+  AdditionalList,
+  AdditionalMovieInfo,
+  AdditionalListItem,
 } from './MovieCard.styled';
 import { BiArrowBack } from 'react-icons/bi';
 import noPoster from '../../images/sorry-poster.jpg';
@@ -67,6 +70,35 @@ export const MovieCard = ({ movieInfo }) => {
           )}
         </FilmInfo>
       </Card>
+      <AdditionalMovieInfo>
+        <h3>Additional information</h3>
+        <AdditionalList>
+          <AdditionalListItem>
+            <NavLink
+              to={{
+                pathname: `${location.pathname}/cast`,
+                state: {
+                  from: location.state.from,
+                },
+              }}
+            >
+              Cast
+            </NavLink>
+          </AdditionalListItem>
+          <AdditionalListItem>
+            <NavLink
+              to={{
+                pathname: `${location.pathname}/reviews`,
+                state: {
+                  from: location.state.from,
+                },
+              }}
+            >
+              Reviews
+            </NavLink>
+          </AdditionalListItem>
+        </AdditionalList>
+      </AdditionalMovieInfo>
     </div>
   );
 };

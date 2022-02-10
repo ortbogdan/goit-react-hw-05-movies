@@ -1,18 +1,7 @@
-import {
-  useParams,
-  useRouteMatch,
-  NavLink,
-  Switch,
-  Route,
-} from 'react-router-dom';
+import { useParams, useRouteMatch, Switch, Route } from 'react-router-dom';
 import { useState, useEffect, lazy, Suspense } from 'react';
 import { getMovieDetailsById } from '../services/moviesApi';
 import { Container, Loader } from '../components/index.js';
-import {
-  AdditionalMovieInfo,
-  AdditionalList,
-  AdditionalListItem,
-} from './Page.styled';
 
 const MovieCard = lazy(() =>
   import('../components/index.js').then(module => ({
@@ -54,17 +43,6 @@ export const MovieDetailsPage = () => {
           {movieInfo && (
             <>
               <MovieCard movieInfo={movieInfo} />
-              <AdditionalMovieInfo>
-                <h3>Additional information</h3>
-                <AdditionalList>
-                  <AdditionalListItem>
-                    <NavLink to={`${url}/cast`}>Cast</NavLink>
-                  </AdditionalListItem>
-                  <AdditionalListItem>
-                    <NavLink to={`${url}/reviews`}>Reviews</NavLink>
-                  </AdditionalListItem>
-                </AdditionalList>
-              </AdditionalMovieInfo>
               <Switch>
                 <Suspense fallback={<Loader />}>
                   <Route path={`${url}/cast`} exact>
