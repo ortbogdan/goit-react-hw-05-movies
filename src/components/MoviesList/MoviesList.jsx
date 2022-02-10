@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
+import noPoster from '../../images/sorry-poster.jpg';
 import {
   List,
   ListItem,
@@ -23,13 +24,16 @@ export const MoviesList = ({ movies }) => {
               },
             }}
           >
-            {' '}
             <Card>
               <MoviePoster>
-                <img
-                  src={`${posterUrl}${movie.poster_path}`}
-                  alt={movie.title}
-                />
+                {movie.poster_path ? (
+                  <img
+                    src={`${posterUrl}${movie.poster_path}`}
+                    alt={movie.title}
+                  />
+                ) : (
+                  <img src={noPoster} alt="No poster" />
+                )}
               </MoviePoster>
 
               <MovieTitle>{movie.title}</MovieTitle>

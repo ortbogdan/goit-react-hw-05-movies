@@ -27,6 +27,7 @@ export const Nav = styled.nav`
       cursor: default;
       color: rgb(221, 233, 224);
       text-shadow: 1px 1px 1px rgb(121, 170, 154), 0 0 0.2em rgb(194, 236, 222);
+      transform: scale(1.2);
     }
   }
 `;
@@ -36,7 +37,7 @@ export const Menu = styled.header`
   width: 100%;
   height: 80px;
   padding: 0 20px 0 20px;
-
+  box-shadow: 0 0 7px 4px rgba(170, 194, 224, 0.3);
   background: rgb(22, 101, 78);
   background: linear-gradient(
     148deg,

@@ -1,7 +1,17 @@
 import PropTypes from 'prop-types';
 import { useLocation, useHistory } from 'react-router-dom';
-import { Card, FilmInfo, GenresList, Button, Thumb } from './MovieCard.styled';
+import {
+  Card,
+  FilmInfo,
+  GenresList,
+  Button,
+  Thumb,
+  GenresItem,
+  MovieDescription,
+} from './MovieCard.styled';
 import { BiArrowBack } from 'react-icons/bi';
+import noPoster from '../../images/sorry-poster.jpg';
+import ReactStars from 'react-rating-stars-component';
 const posterUrl = 'https://image.tmdb.org/t/p/w300';
 export const MovieCard = ({ movieInfo }) => {
   const location = useLocation();
@@ -19,24 +29,41 @@ export const MovieCard = ({ movieInfo }) => {
       </Button>
       <Card>
         <Thumb>
-          <img src={`${posterUrl}${poster_path}`} alt={title} />
+          {poster_path ? (
+            <img src={`${posterUrl}${poster_path}`} alt={title} />
+          ) : (
+            <img src={noPoster} alt="No poster" />
+          )}
         </Thumb>
         <FilmInfo>
           <h2>{title}</h2>
-          {vote_average ? (
-            <p>User voute: {vote_average * 10}%</p>
+          <p>
+            User voute:{' '}
+            {vote_average ? vote_average * 10 + '%' : <span>Not found</span>}
+          </p>
+          <ReactStars
+            isHalf={true}
+            value={vote_average}
+            count={10}
+            size={24}
+            edit={false}
+            activeColor="#ffd700"
+          />
+          <h3>Overview</h3>
+          {overview ? (
+            <MovieDescription>{overview}</MovieDescription>
           ) : (
             <p>Not found</p>
           )}
-          <h3>Overview</h3>
-          {overview ? <p>{overview}</p> : <p>Not found</p>}
           <h3>Genres</h3>
-          {genres && (
+          {genres ? (
             <GenresList>
               {genres.map(({ id, name }) => (
-                <li key={id}>{name}</li>
+                <GenresItem key={id}>{name}</GenresItem>
               ))}
             </GenresList>
+          ) : (
+            <p>Not found</p>
           )}
         </FilmInfo>
       </Card>

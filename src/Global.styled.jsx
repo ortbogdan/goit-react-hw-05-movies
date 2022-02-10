@@ -16,7 +16,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   color: rgb(170, 194, 224);
-  background-color: rgb(12, 16, 22);
+  background-color: rgb(20, 27, 37);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -26,7 +26,7 @@ img {
   height:100%;
 }
 h1, h2, h3, h4, h5, h6 {
-    margin: 0;
+    margin-bottom: 20px;
     font-family: 'Josefin Sans', sans-serif;
     
     text-transform: uppercase;
@@ -37,5 +37,8 @@ ul {
     margin: 0;
     list-style: none;
     padding: 0;
+}
+p {
+  margin: 0;
 }
 `;

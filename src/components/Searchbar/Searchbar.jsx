@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
-import { SearchButton, Input } from './Searchbar.styled';
+import { SearchButton, Input, Form } from './Searchbar.styled';
+import { BsSearch } from 'react-icons/bs';
 export const Searchbar = ({ onFormSubmit }) => {
   const handleSubmit = e => {
     e.preventDefault();
@@ -12,10 +13,12 @@ export const Searchbar = ({ onFormSubmit }) => {
   };
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <SearchButton type="submit">Search</SearchButton>
-        <Input type="text" name="search" />
-      </form>
+      <Form onSubmit={handleSubmit}>
+        <SearchButton type="submit">
+          <BsSearch />
+        </SearchButton>
+        <Input type="text" name="search" placeholder="Search film" />
+      </Form>
     </div>
   );
 };
