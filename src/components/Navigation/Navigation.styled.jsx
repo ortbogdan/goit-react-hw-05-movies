@@ -10,6 +10,7 @@ export const Nav = styled.nav`
     justify-content: center;
     align-items: center;
     text-decoration: none;
+    color: inherit;
     transition: text-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
       transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
     :not(:first-child) {
