@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import { useState, useEffect, lazy, Suspense } from 'react';
 import { getMovieDetailsById } from '../services/moviesApi';
-import { Container } from '../components/index.js';
+import { Container, Loader } from '../components/index.js';
 import {
   AdditionalMovieInfo,
   AdditionalList,
@@ -50,7 +50,7 @@ export const MovieDetailsPage = () => {
   return (
     <main>
       <Container>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loader />}>
           {movieInfo && (
             <>
               <MovieCard movieInfo={movieInfo} />
@@ -66,7 +66,7 @@ export const MovieDetailsPage = () => {
                 </AdditionalList>
               </AdditionalMovieInfo>
               <Switch>
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<Loader />}>
                   <Route path={`${url}/cast`} exact>
                     <Cast cast={movieInfo.credits.cast} />
                   </Route>
