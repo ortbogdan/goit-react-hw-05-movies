@@ -1,5 +1,10 @@
 import PropTypes from 'prop-types';
-import { useLocation, useHistory, NavLink } from 'react-router-dom';
+import {
+  useLocation,
+  useHistory,
+  NavLink,
+  useRouteMatch,
+} from 'react-router-dom';
 import {
   Card,
   FilmInfo,
@@ -17,6 +22,7 @@ import noPoster from '../../images/sorry-poster.jpg';
 import ReactStars from 'react-rating-stars-component';
 const posterUrl = 'https://image.tmdb.org/t/p/w300';
 export const MovieCard = ({ movieInfo }) => {
+  const { url } = useRouteMatch();
   const location = useLocation();
   const history = useHistory();
   const { poster_path, title, vote_average, overview, genres } = movieInfo;
@@ -76,7 +82,7 @@ export const MovieCard = ({ movieInfo }) => {
           <AdditionalListItem>
             <NavLink
               to={{
-                pathname: `${location.pathname}/cast`,
+                pathname: `${url}/cast`,
                 state: {
                   from: location.state.from,
                 },
@@ -88,7 +94,7 @@ export const MovieCard = ({ movieInfo }) => {
           <AdditionalListItem>
             <NavLink
               to={{
-                pathname: `${location.pathname}/reviews`,
+                pathname: `${url}/reviews`,
                 state: {
                   from: location.state.from,
                 },
