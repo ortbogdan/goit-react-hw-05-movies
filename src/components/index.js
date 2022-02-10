@@ -5,6 +5,7 @@ import { MovieCard } from './MovieCard/MovieCard';
 import { Cast } from './Cast/Cast';
 import { Reviews } from './Reviews/Reviews';
 import { Container } from './Container/Container';
+import { Loader } from './Loader/Loader';
 export {
   Navigation,
   Searchbar,
@@ -13,4 +14,5 @@ export {
   Reviews,
   Cast,
   Container,
+  Loader,
 };

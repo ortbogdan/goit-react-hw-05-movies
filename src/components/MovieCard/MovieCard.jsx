@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useLocation, useHistory } from 'react-router-dom';
-import { Card, FilmInfo, GenresList, Button } from './MovieCard.styled';
+import { Card, FilmInfo, GenresList, Button, Thumb } from './MovieCard.styled';
+import { BiArrowBack } from 'react-icons/bi';
 const posterUrl = 'https://image.tmdb.org/t/p/w300';
 export const MovieCard = ({ movieInfo }) => {
   const location = useLocation();
@@ -13,10 +14,13 @@ export const MovieCard = ({ movieInfo }) => {
     <div>
       {/* useHistory метод який повертає в стеку історії на один шлях назад, те саме, що метод go(-1), але його не можна використовувати, оскыльки він тільки повертає на попередню вкладку    */}
       <Button type="button" onClick={onGoBack}>
+        <BiArrowBack />
         Go back
       </Button>
       <Card>
-        <img src={`${posterUrl}${poster_path}`} alt={title} />
+        <Thumb>
+          <img src={`${posterUrl}${poster_path}`} alt={title} />
+        </Thumb>
         <FilmInfo>
           <h2>{title}</h2>
           {vote_average ? (

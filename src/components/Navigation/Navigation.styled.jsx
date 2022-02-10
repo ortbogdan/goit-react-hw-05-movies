@@ -26,6 +26,7 @@ export const Nav = styled.nav`
     &.active {
       cursor: default;
       color: rgb(221, 233, 224);
+      text-shadow: 1px 1px 1px rgb(121, 170, 154), 0 0 0.2em rgb(194, 236, 222);
     }
   }
 `;

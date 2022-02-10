@@ -2,7 +2,7 @@ import { Route, Switch } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Navigation } from './components';
+import { Navigation, Loader } from './components';
 import { getTrendingMovies } from './services/moviesApi';
 
 // Зразок функції для застосування lazy до іменованого імпорту
@@ -24,7 +24,7 @@ export const App = () => {
   return (
     <>
       <Navigation />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loader />}>
         <Switch>
           <Route path="/" exact>
             <HomePage />
