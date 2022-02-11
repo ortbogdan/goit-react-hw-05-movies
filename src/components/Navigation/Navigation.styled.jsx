@@ -15,7 +15,7 @@ export const Nav = styled.nav`
     transition: text-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
       transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
     :not(:first-child) {
-      margin-left: 15px;
+      margin-left: 25px;
     }
     :visited {
       color: inherit;

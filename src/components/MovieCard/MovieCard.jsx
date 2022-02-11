@@ -79,7 +79,7 @@ export const MovieCard = ({ movieInfo }) => {
               to={{
                 pathname: `${url}/cast`,
                 state: {
-                  from: location.state.from,
+                  from: location?.state?.from || location,
                 },
               }}
             >
@@ -91,7 +91,7 @@ export const MovieCard = ({ movieInfo }) => {
               to={{
                 pathname: `${url}/reviews`,
                 state: {
-                  from: location.state.from,
+                  from: location?.state?.from || location,
                 },
               }}
             >
