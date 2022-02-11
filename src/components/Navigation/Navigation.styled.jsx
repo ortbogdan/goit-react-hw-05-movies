@@ -5,6 +5,7 @@ export const Nav = styled.nav`
   align-items: center;
   text-transform: uppercase;
 
+  font-size: 20px;
   > a {
     display: flex;
     justify-content: center;

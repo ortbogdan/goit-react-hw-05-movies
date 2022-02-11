@@ -18,18 +18,14 @@ export const Card = styled.article`
 export const FilmInfo = styled.div`
   padding: 15px 15px 15px 15px;
 `;
-export const GenresList = styled.ul`
-  display: flex;
-`;
-export const GenresItem = styled.li`
+export const Genres = styled.p`
+  height: 30px;
   padding: 5px;
-
-  border-radius: 10px;
+  text-align: center;
+  border-radius: 6px;
   box-shadow: 0 0 5px 2px rgba(170, 194, 224, 0.3);
-  :not(:first-child) {
-    margin-left: 10px;
-  }
 `;
+
 export const Button = styled.button`
   display: flex;
   justify-content: space-between;

@@ -8,10 +8,9 @@ import {
 import {
   Card,
   FilmInfo,
-  GenresList,
   Button,
   Thumb,
-  GenresItem,
+  Genres,
   MovieDescription,
   AdditionalList,
   AdditionalMovieInfo,
@@ -66,11 +65,7 @@ export const MovieCard = ({ movieInfo }) => {
           )}
           <h3>Genres</h3>
           {genres ? (
-            <GenresList>
-              {genres.map(({ id, name }) => (
-                <GenresItem key={id}>{name}</GenresItem>
-              ))}
-            </GenresList>
+            <Genres>{genres.map(({ name }) => name).join(', ')}</Genres>
           ) : (
             <p>Not found</p>
           )}

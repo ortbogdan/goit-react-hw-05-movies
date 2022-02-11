@@ -14,8 +14,8 @@ export const Searchbar = ({ onFormSubmit }) => {
   return (
     <div>
       <Form onSubmit={handleSubmit}>
-        <SearchButton type="submit">
-          <BsSearch />
+        <SearchButton type="submit" aria-label="Search">
+          <BsSearch size="30px" />
         </SearchButton>
         <Input type="text" name="search" placeholder="Search film" />
       </Form>

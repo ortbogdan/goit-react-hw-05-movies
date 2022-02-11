@@ -1,17 +1,15 @@
 import styled from 'styled-components';
 
 export const SearchButton = styled.button`
+  width: 50px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
-  padding: 5px 10px 5px 10px;
   border-radius: 4px;
   border: 1px solid rgb(18, 24, 32);
 
   text-transform: uppercase;
-
-  box-shadow: 0 0 5px 2px rgba(170, 194, 224, 0.3);
 
   background-color: rgb(170, 194, 224);
   color: rgb(18, 24, 32);
@@ -20,23 +18,35 @@ export const SearchButton = styled.button`
   :hover,
   :focus {
     background-color: rgb(18, 24, 32);
-
+    box-shadow: 0 0 7px 5px rgba(170, 194, 224, 0.3);
     color: rgb(170, 194, 224);
   }
 `;
 
 export const Input = styled.input`
-  min-width: 190px;
-  height: 30px;
+  width: 400px;
+  height: 50px;
   padding: 15px;
   margin-left: 20px;
+
+  font-size: 18px;
+
   border: none;
   border-radius: 6px;
   background-color: rgb(170, 194, 224);
-  box-shadow: 0 0 5px 2px rgba(170, 194, 224, 0.3);
-
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  :focus,
+  :hover {
+    outline: 1px solid rgb(18, 24, 32);
+    box-shadow: 0 0 7px 5px rgba(170, 194, 224, 0.3);
+  }
   ::placeholder {
-    color: rgb(10, 49, 34);
+    font-size: 18px;
+    text-transform: uppercase;
+    color: rgb(18, 24, 32);
+  }
+  :focus::placeholder {
+    color: transparent;
   }
 `;
 export const Form = styled.form`
