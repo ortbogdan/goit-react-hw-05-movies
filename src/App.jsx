@@ -3,7 +3,6 @@ import { lazy, Suspense } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Navigation, Loader } from './components';
-import { getTrendingMovies } from './services/moviesApi';
 
 // Зразок функції для застосування lazy до іменованого імпорту
 const createChunk = componentName => {
@@ -20,7 +19,6 @@ const NotFoundPage = createChunk('NotFoundPage');
 const MovieDetailsPage = createChunk('MovieDetailsPage');
 
 export const App = () => {
-  getTrendingMovies();
   return (
     <>
       <Navigation />
@@ -32,7 +30,7 @@ export const App = () => {
           <Route path="/movies" exact>
             <MoviesPage />
           </Route>
-          <Route path="/movies/:movieId">
+          <Route path="/movies/:slug">
             <MovieDetailsPage />
           </Route>
           <Route>

@@ -20,10 +20,11 @@ const Reviews = lazy(() =>
 );
 
 export const MovieDetailsPage = () => {
-  const { movieId } = useParams(); // movieId відповідає параметрам App
+  const { slug } = useParams(); // slug відповідає параметрам App
   const { url } = useRouteMatch();
   const [movieInfo, setMovieInfo] = useState(null);
 
+  const movieId = slug.match(/[a-zA-Z0-9]+$/)[0]; // регулярний вираз /[a-zA-Z0-9]+$/ в методі строки match() поверне масив де першим елементом [0] буде строка-співпадіння, в нашому випадку це id фільму для пошуку
   useEffect(() => {
     async function fetchMovieInfo(id) {
       try {

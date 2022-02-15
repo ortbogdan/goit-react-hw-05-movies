@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import noPoster from '../../images/sorry-poster.jpg';
+import slugify from 'slugify';
 import {
   List,
   ListItem,
@@ -17,7 +18,9 @@ export const MoviesList = ({ movies }) => {
         <ListItem key={movie.id}>
           <Link
             to={{
-              pathname: `/movies/${movie.id}`,
+              pathname: `/movies/${slugify(`${movie.title} ${movie.id}`, {
+                lower: true,
+              })}`, //метод пакету slugify отримує строку і перетвоює її, з додатковими налаштуваннями - {lower: true}
               state: {
                 from: location,
               },
